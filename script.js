@@ -43,13 +43,18 @@ function backgroundColorChange(event) {
     }
 }
 
+function getSquareSize() {
+    const maxSquares = 100;
+    const minSquares = 10;
+    let numOfSquares = prompt('Enter the number of squares (max of 100)');
+    numOfSquares = (numOfSquares < minSquares) ? minSquares : (numOfSquares > maxSquares) ? maxSquares : numOfSquares;
+    clearGrid();
+    createGrid(numOfSquares);
+}
+
 setContainer();
 container.addEventListener('mouseover', backgroundColorChange);
 
 const button = document.querySelector('button');
 
-button.addEventListener('click', () => {
-    let numOfSquares = prompt('Enter the number of squares');
-    clearGrid();
-    createGrid(numOfSquares);
-})
+button.addEventListener('click', getSquareSize);
