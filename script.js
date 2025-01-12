@@ -13,17 +13,24 @@ change background color of square when hovered over
 const container = document.querySelector('.container');
 const containerSize = 480;
 
-container.style.width = `${containerSize}px`;
-container.style.height = `${containerSize}px`;
+function setContainer() {
+    container.style.width = `${containerSize}px`;
+    container.style.height = `${containerSize}px`;
 
+    createGrid();
+}
 
 // create 16x16 grid
-let size = 16;
-let squareSize = containerSize / size;
-for (let i = 0; i < (size * size); i++) {
-    const divSquare = document.createElement('div');
-    divSquare.classList.add('square');
-    divSquare.style.width = `${squareSize}px`;
-    divSquare.style.height = `${squareSize}px`;
-    container.appendChild(divSquare);
+function createGrid() {
+    let size = 16;
+    let squareSize = containerSize / size;
+    for (let i = 0; i < (size * size); i++) {
+        const divSquare = document.createElement('div');
+        divSquare.classList.add('square');
+        divSquare.style.width = `${squareSize}px`;
+        divSquare.style.height = `${squareSize}px`;
+        container.appendChild(divSquare);
+    }
 }
+
+setContainer();
