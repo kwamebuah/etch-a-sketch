@@ -18,8 +18,9 @@ container.style.height = `${containerSize}px`;
 
 
 // create 16x16 grid
-let squareSize = containerSize / 16;
-for (let i = 0; i < (16 * 16); i++) {
+let size = 16;
+let squareSize = containerSize / size;
+for (let i = 0; i < (size * size); i++) {
     const divSquare = document.createElement('div');
     divSquare.classList.add('square');
     divSquare.style.width = `${squareSize}px`;
