@@ -40,9 +40,17 @@ function getSquareSize() {
     createGrid(numOfSquares);
 }
 
+function resetColors() {
+    for (let child of Array.from(container.childNodes)) {
+        child.style.backgroundColor = '#fff';
+    }
+}
+
 setContainer();
 container.addEventListener('mouseover', backgroundColorChange);
 
-const button = document.querySelector('button');
+const squareSize = document.querySelector('#square-size');
+const clear = document.querySelector('#clear');
 
-button.addEventListener('click', getSquareSize);
+squareSize.addEventListener('click', getSquareSize);
+clear.addEventListener('click', resetColors);
