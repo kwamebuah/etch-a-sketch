@@ -20,8 +20,7 @@ function setContainer() {
     createGrid();
 }
 
-function createGrid() {
-    let size = 16;
+function createGrid(size=16) {
     let squareSize = containerSize / size;
     for (let i = 0; i < (size * size); i++) {
         const divSquare = document.createElement('div');
@@ -29,6 +28,12 @@ function createGrid() {
         divSquare.style.width = `${squareSize}px`;
         divSquare.style.height = `${squareSize}px`;
         container.appendChild(divSquare);
+    }
+}
+
+function clearGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
     }
 }
 
@@ -40,3 +45,11 @@ function backgroundColorChange(event) {
 
 setContainer();
 container.addEventListener('mouseover', backgroundColorChange);
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+    let numOfSquares = prompt('Enter the number of squares');
+    clearGrid();
+    createGrid(numOfSquares);
+})
