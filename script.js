@@ -20,7 +20,6 @@ function setContainer() {
     createGrid();
 }
 
-// create 16x16 grid
 function createGrid() {
     let size = 16;
     let squareSize = containerSize / size;
@@ -33,4 +32,11 @@ function createGrid() {
     }
 }
 
+function backgroundColorChange(event) {
+    if (event.target.classList.contains('square')) {
+        event.target.style.backgroundColor = 'yellow';
+    }
+}
+
 setContainer();
+container.addEventListener('mouseover', backgroundColorChange);
