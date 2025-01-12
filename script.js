@@ -1,17 +1,5 @@
-/*
-have a grid of squares in a container
-(css) use flex to create the grid pattern
-the squares should always fit the container
-
-use event bubbling to detect mouseover on the squares
-change background color of square when hovered over
-
-
-*/
-
-
 const container = document.querySelector('.container');
-const containerSize = 480;
+const containerSize = 600;
 
 function setContainer() {
     container.style.width = `${containerSize}px`;
