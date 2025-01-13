@@ -81,9 +81,10 @@ clearBtn.addEventListener('click', resetColors);
 
 rainbowBtn.addEventListener('click', () => {
     const divSquare = document.querySelectorAll('.square');
-    for (let i = 0; i < divSquare.length; i++) {
-        if (!divSquare[i].classList.contains('rainbow')) {
-            divSquare[i].classList.add('rainbow');
+
+    for (const element of divSquare) {
+        if (!element.classList.contains('rainbow')) {
+            element.classList.add('rainbow');
         }
     }
 });
