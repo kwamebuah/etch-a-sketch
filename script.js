@@ -27,7 +27,12 @@ function clearGrid() {
 
 function backgroundColorChange(event) {
     if (event.target.classList.contains('square')) {
-        event.target.style.backgroundColor = 'yellow';
+        if (event.target.classList.contains('rainbow')) {
+            setBackgroundRainbow(event);
+        }
+        else {
+            event.target.style.backgroundColor = '#000';
+        }
     }
 }
 
@@ -46,10 +51,8 @@ function resetColors() {
     }
 }
 
-
-// random color generator
 function randomColorGenerator() {
-    let colorArray =[0, 0, 0];
+    let colorArray = [0, 0, 0];
     for (let i = 0; i < colorArray.length; i++) {
         let rand = Math.floor(Math.random() * 255);
         colorArray[i] = rand;
@@ -59,17 +62,35 @@ function randomColorGenerator() {
 }
 
 function setBackgroundRainbow(event) {
-    if (event.target.classList.contains('square')) {
-        event.target.style.backgroundColor = randomColorGenerator();
-    }
+    event.target.style.backgroundColor = randomColorGenerator();
 }
 
 setContainer();
-// container.addEventListener('mouseover', backgroundColorChange);
-container.addEventListener('mouseover', setBackgroundRainbow);
+container.addEventListener('mouseover', backgroundColorChange);
 
 const squareSize = document.querySelector('#square-size');
 const clear = document.querySelector('#clear');
+const rainbowBtn = document.querySelector('#rainbow');
+const blackBtn = document.querySelector('#black');
 
 squareSize.addEventListener('click', getSquareSize);
+
 clear.addEventListener('click', resetColors);
+
+rainbowBtn.addEventListener('click', () => {
+    const divSquare = document.querySelectorAll('.square');
+    for (let i = 0; i < divSquare.length; i++) {
+        if (!divSquare[i].classList.contains('rainbow')) {
+            divSquare[i].classList.add('rainbow');
+        }
+    }
+});
+
+blackBtn.addEventListener('click', () => {
+    const divSquare = document.querySelectorAll('.square');
+    for (let i = 0; i < divSquare.length; i++) {
+        if (divSquare[i].classList.contains('rainbow')) {
+            divSquare[i].classList.remove('rainbow');
+        }
+    }
+})
