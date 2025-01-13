@@ -42,7 +42,7 @@ function getSquareSize() {
 function backgroundColorChange(event) {
     if (event.target.classList.contains('square')) {
         if (event.target.classList.contains('rainbow')) {
-            setBackgroundRainbow(event);
+            useRandomColor(event);
         }
         else {
             event.target.style.backgroundColor = '#000';
@@ -50,25 +50,19 @@ function backgroundColorChange(event) {
     }
 }
 
-
 function resetColors() {
     for (let child of Array.from(container.childNodes)) {
         child.style.backgroundColor = '#fff';
     }
 }
 
-function randomColorGenerator() {
+function useRandomColor(event) {
     let colorArray = [0, 0, 0];
     for (let i = 0; i < colorArray.length; i++) {
         let rand = Math.floor(Math.random() * 255);
         colorArray[i] = rand;
     }
-    const randomColor = `rgb(${colorArray[0]}, ${colorArray[1]}, ${colorArray[2]})`;
-    return randomColor;
-}
-
-function setBackgroundRainbow(event) {
-    event.target.style.backgroundColor = randomColorGenerator();
+    event.target.style.backgroundColor = `rgb(${colorArray[0]}, ${colorArray[1]}, ${colorArray[2]})`;
 }
 
 setContainer();
