@@ -1,8 +1,8 @@
 const container = document.querySelector('.container');
 const containerSize = 600;
 
-const squareSize = document.querySelector('#square-size');
-const clear = document.querySelector('#clear');
+const squareSizeBtn = document.querySelector('#square-size');
+const clearBtn = document.querySelector('#clear');
 const rainbowBtn = document.querySelector('#rainbow');
 const blackBtn = document.querySelector('#black');
 
@@ -75,9 +75,9 @@ setContainer();
 
 container.addEventListener('mouseover', backgroundColorChange);
 
-squareSize.addEventListener('click', getSquareSize);
+squareSizeBtn.addEventListener('click', getSquareSize);
 
-clear.addEventListener('click', resetColors);
+clearBtn.addEventListener('click', resetColors);
 
 rainbowBtn.addEventListener('click', () => {
     const divSquare = document.querySelectorAll('.square');
