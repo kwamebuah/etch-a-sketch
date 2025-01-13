@@ -91,9 +91,10 @@ rainbowBtn.addEventListener('click', () => {
 
 blackBtn.addEventListener('click', () => {
     const divSquare = document.querySelectorAll('.square');
-    for (let i = 0; i < divSquare.length; i++) {
-        if (divSquare[i].classList.contains('rainbow')) {
-            divSquare[i].classList.remove('rainbow');
+
+    for (const element of divSquare) {
+        if (element.classList.contains('rainbow')) {
+            element.classList.remove('rainbow');
         }
     }
 });
