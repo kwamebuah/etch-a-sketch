@@ -1,6 +1,11 @@
 const container = document.querySelector('.container');
 const containerSize = 600;
 
+const squareSize = document.querySelector('#square-size');
+const clear = document.querySelector('#clear');
+const rainbowBtn = document.querySelector('#rainbow');
+const blackBtn = document.querySelector('#black');
+
 function setContainer() {
     container.style.width = `${containerSize}px`;
     container.style.height = `${containerSize}px`;
@@ -25,6 +30,15 @@ function clearGrid() {
     }
 }
 
+function getSquareSize() {
+    const maxSquares = 100;
+    const minSquares = 10;
+    let numOfSquares = prompt('Enter the number of squares (max of 100)');
+    numOfSquares = (numOfSquares < minSquares) ? minSquares : (numOfSquares > maxSquares) ? maxSquares : numOfSquares;
+    clearGrid();
+    createGrid(numOfSquares);
+}
+
 function backgroundColorChange(event) {
     if (event.target.classList.contains('square')) {
         if (event.target.classList.contains('rainbow')) {
@@ -36,14 +50,6 @@ function backgroundColorChange(event) {
     }
 }
 
-function getSquareSize() {
-    const maxSquares = 100;
-    const minSquares = 10;
-    let numOfSquares = prompt('Enter the number of squares (max of 100)');
-    numOfSquares = (numOfSquares < minSquares) ? minSquares : (numOfSquares > maxSquares) ? maxSquares : numOfSquares;
-    clearGrid();
-    createGrid(numOfSquares);
-}
 
 function resetColors() {
     for (let child of Array.from(container.childNodes)) {
@@ -66,12 +72,8 @@ function setBackgroundRainbow(event) {
 }
 
 setContainer();
-container.addEventListener('mouseover', backgroundColorChange);
 
-const squareSize = document.querySelector('#square-size');
-const clear = document.querySelector('#clear');
-const rainbowBtn = document.querySelector('#rainbow');
-const blackBtn = document.querySelector('#black');
+container.addEventListener('mouseover', backgroundColorChange);
 
 squareSize.addEventListener('click', getSquareSize);
 
@@ -93,4 +95,4 @@ blackBtn.addEventListener('click', () => {
             divSquare[i].classList.remove('rainbow');
         }
     }
-})
+});
