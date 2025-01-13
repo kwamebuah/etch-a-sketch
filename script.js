@@ -8,7 +8,7 @@ function setContainer() {
     createGrid();
 }
 
-function createGrid(size=16) {
+function createGrid(size = 16) {
     let squareSize = containerSize / size;
     for (let i = 0; i < (size * size); i++) {
         const divSquare = document.createElement('div');
@@ -46,8 +46,27 @@ function resetColors() {
     }
 }
 
+
+// random color generator
+function randomColorGenerator() {
+    let colorArray =[0, 0, 0];
+    for (let i = 0; i < colorArray.length; i++) {
+        let rand = Math.floor(Math.random() * 255);
+        colorArray[i] = rand;
+    }
+    randomColor = `rgb(${colorArray[0]}, ${colorArray[1]}, ${colorArray[2]})`;
+    return randomColor;
+}
+
+function setBackgroundRainbow(event) {
+    if (event.target.classList.contains('square')) {
+        event.target.style.backgroundColor = randomColorGenerator();
+    }
+}
+
 setContainer();
-container.addEventListener('mouseover', backgroundColorChange);
+// container.addEventListener('mouseover', backgroundColorChange);
+container.addEventListener('mouseover', setBackgroundRainbow);
 
 const squareSize = document.querySelector('#square-size');
 const clear = document.querySelector('#clear');
