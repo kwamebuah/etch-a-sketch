@@ -63,7 +63,7 @@ function randomColorGenerator() {
         let rand = Math.floor(Math.random() * 255);
         colorArray[i] = rand;
     }
-    randomColor = `rgb(${colorArray[0]}, ${colorArray[1]}, ${colorArray[2]})`;
+    const randomColor = `rgb(${colorArray[0]}, ${colorArray[1]}, ${colorArray[2]})`;
     return randomColor;
 }
 
