@@ -5,10 +5,6 @@
 }
 
 body {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     min-height: 100vh;
 }
 
@@ -59,25 +55,19 @@ main {
     width: 150px;
     border-radius: 10px;
     border: none;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inherit;
 }
 
 .buttons button:hover {
-    border: none;
     background-color: azure;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .buttons button:active {
-    border: none;
-    background-color: azure;
     font-weight: 600;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .container {
     box-sizing: content-box;
-    /* border: 2px solid #786e6e; */
     background-color: #fff;
     display: flex;
     flex-wrap: wrap;
